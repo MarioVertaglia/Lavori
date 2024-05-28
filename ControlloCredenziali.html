@@ -1,0 +1,67 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title>Credenziali admin</title>
+    <style>
+        body {
+            background: url(https://img.freepik.com/foto-premium/carta-da-parati-della-natura-bella-carta-da-parati-della-natura-sfondi-della-natura-4k-carta-da-parati-della-natura-hd-natura-verde_722194-160.jpg) fixed;
+            background-size: cover;
+        }
+
+        header {
+	        text-align: center;
+	    
+	    }
+    </style>
+</head>
+<body>
+    <header>
+        <h2>Inserisci le credenziali</h2>
+
+        <input type="text" id="nomeutente" /> <br />
+        <br />
+        <input type="number" id="password" /><br />
+        <p>Verifica che non sei un robot</p>
+        <input type="checkbox" id="robot" /><br />
+        <br />
+        <button onclick="controllo()">Verifica</button>
+        <p id="autorizzato"></p>
+    </header>
+    <script>function controllo() {
+            var nomeutente = document.getElementById("nomeutente").value;
+            var password = document.getElementById("password").value;
+            var check = document.getElementById("robot").checked;
+            var autorizzato = document.getElementById("autorizzato");
+            
+            if (nomeutente == "admin" && password == "1234") {
+
+                switch (check) {
+
+                    case true:
+                        alert("Credenziali corrette");
+                        break;
+                    case false:
+                        alert("Credenziali corrette ma potresti essere un bot!");
+                        break;
+                }
+
+
+            }
+            else {
+                if (nomeutente == "admin" && password != "1234") {
+                    alert("Nome utente ok ma la password è errata")
+                }
+                else {
+                    if (nomeutente != "admin" && password == "1234") {
+                        alert("Nome utente è errato ma la password è giusta! ")
+                    }
+                    else { alert("Credenziali errate"); }
+                }
+
+
+            }
+        }</script>
+</body>
+</html>
